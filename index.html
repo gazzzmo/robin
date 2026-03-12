@@ -1,46 +1,685 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Mirrored from users.tpg.com.au/lesleyjh/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Aug 2016 06:32:19 GMT -->
 <head>
-<meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="journalism, investigative journalism, political journalism">
-<meta name="keywords" content="journalism, investigative journalism, Robin Howells, Nation Review, The Ferret, Ferretabilia, PC Australia, politics, Australia, Samantha Dawe, news articles, political articles, computer news articles">
-<meta name="distribution" content="global">
-<title>A aardvark - The Life and Times of Robin F. Howells...</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Life and Times of Robin F. Howells — journalist, investigative reporter, and communications veteran">
+<meta name="keywords" content="journalism, investigative journalism, Robin Howells, Nation Review, The Ferret, Ferretabilia, PC Australia, politics, Australia">
+<title>Robin F. Howells — Journalist &amp; Writer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #2a1f14;
+    --crimson:   #710024;
+    --cream:     #f5f0e8;
+    --parchment: #ede5d4;
+    --muted:     #7a6e63;
+    --rule:      #c9bfae;
+    --navy:      #1e2d4a;
+  }
 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* ── Masthead ── */
+  .masthead {
+    background: var(--navy);
+    color: var(--cream);
+    text-align: center;
+    padding: 3.5rem 1.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(255,255,255,.04) 39px,
+      rgba(255,255,255,.04) 40px
+    );
+    pointer-events: none;
+  }
+  .masthead-rule {
+    width: 60px;
+    height: 3px;
+    background: var(--crimson);
+    margin: 0 auto 1.2rem;
+    border: none;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 700;
+    letter-spacing: .02em;
+    margin-bottom: .3rem;
+  }
+  .masthead .tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(245,240,232,.7);
+    margin-bottom: 1.8rem;
+  }
+
+  /* ── Nav ── */
+  nav {
+    background: var(--crimson);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,.25);
+  }
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Source Serif 4', serif;
+    font-size: .85rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .85rem 1.4rem;
+    border-right: 1px solid rgba(255,255,255,.15);
+    transition: background .2s;
+  }
+  nav a:last-child { border-right: none; }
+  nav a:hover { background: rgba(255,255,255,.12); }
+  nav a.active { background: rgba(0,0,0,.2); }
+
+  /* ── Layout ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  /* ── Section headings ── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    color: var(--crimson);
+    border-bottom: 2px solid var(--rule);
+    padding-bottom: .6rem;
+    margin-bottom: 2rem;
+  }
+  .section-title.center { text-align: center; }
+
+  /* ── Splash / Home ── */
+  .splash-photo {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 4px solid var(--parchment);
+    box-shadow: 0 8px 40px rgba(0,0,0,.18);
+    margin: 0 auto 2.5rem;
+    cursor: pointer;
+    transition: transform .3s, box-shadow .3s;
+  }
+  .splash-photo:hover {
+    transform: scale(1.01);
+    box-shadow: 0 12px 50px rgba(0,0,0,.25);
+  }
+  .splash-caption {
+    font-style: italic;
+    font-size: .92rem;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── Bio ── */
+  .bio-intro {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+  .career-highlights {
+    list-style: none;
+    margin: 1.5rem 0 2rem;
+  }
+  .career-highlights li {
+    padding: .6rem 0 .6rem 1.5rem;
+    border-left: 3px solid var(--crimson);
+    margin-bottom: .8rem;
+    font-size: .97rem;
+  }
+  .career-highlights li em { color: var(--navy); font-style: italic; }
+
+  /* ── Quote of the day ── */
+  .quote-block {
+    background: var(--parchment);
+    border-left: 5px solid var(--crimson);
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .quote-block p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.08rem;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: .5rem;
+  }
+  .quote-block cite {
+    font-size: .85rem;
+    color: var(--muted);
+    font-style: normal;
+  }
+  .quote-label {
+    font-size: .78rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    font-weight: 700;
+    margin-bottom: .4rem;
+  }
+
+  /* ── Articles ── */
+  .articles-note {
+    background: #fff8f0;
+    border: 1px solid #e8d5c0;
+    padding: 1rem 1.4rem;
+    border-radius: 4px;
+    font-size: .9rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+  .articles-note strong { color: var(--crimson); }
+
+  .article-group h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin: 2rem 0 .8rem;
+    padding-bottom: .3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .article-list {
+    list-style: none;
+  }
+  .article-list li {
+    display: flex;
+    align-items: baseline;
+    gap: .7rem;
+    padding: .4rem 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .article-list li:last-child { border-bottom: none; }
+  .article-list a {
+    color: var(--crimson);
+    text-decoration: none;
+    font-size: .97rem;
+    transition: color .2s;
+    flex: 1;
+  }
+  .article-list a:hover { color: var(--navy); text-decoration: underline; }
+  .article-list .date {
+    font-size: .8rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* ── Whats New ── */
+  .whats-new-list {
+    list-style: none;
+  }
+  .whats-new-list li {
+    padding: .6rem 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .whats-new-list li:last-child { border-bottom: none; }
+  .whats-new-list a {
+    color: var(--crimson);
+    text-decoration: none;
+    font-size: .97rem;
+  }
+  .whats-new-list a:hover { text-decoration: underline; }
+
+  /* ── Links ── */
+  .links-intro {
+    font-size: .97rem;
+    margin-bottom: 2rem;
+    color: var(--ink);
+  }
+  .link-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .link-list li a {
+    display: block;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--crimson);
+    padding: .8rem 1.1rem;
+    color: var(--navy);
+    text-decoration: none;
+    font-size: .93rem;
+    border-radius: 0 4px 4px 0;
+    transition: background .2s, border-color .2s;
+  }
+  .link-list li a:hover {
+    background: var(--parchment);
+    border-left-color: var(--navy);
+  }
+  .link-list li a span {
+    display: block;
+    font-size: .78rem;
+    color: var(--muted);
+    margin-top: .2rem;
+  }
+
+  /* ── Contact ── */
+  .contact-intro {
+    margin-bottom: 2rem;
+    font-size: .97rem;
+  }
+  .contact-form {
+    display: grid;
+    gap: 1.2rem;
+    max-width: 560px;
+  }
+  .field label {
+    display: block;
+    font-size: .8rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .35rem;
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    font-family: 'Source Serif 4', serif;
+    font-size: .97rem;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: .65rem .9rem;
+    transition: border-color .2s;
+  }
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--crimson);
+    box-shadow: 0 0 0 3px rgba(113,0,36,.08);
+  }
+  .field textarea { resize: vertical; min-height: 160px; }
+  .btn {
+    display: inline-block;
+    background: var(--crimson);
+    color: #fff;
+    border: none;
+    padding: .8rem 2rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: .95rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background .2s;
+  }
+  .btn:hover { background: var(--navy); }
+  .btn-row { display: flex; gap: 1rem; align-items: center; }
+  .btn-secondary {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--rule);
+  }
+  .btn-secondary:hover { background: var(--parchment); color: var(--ink); }
+  .form-success {
+    display: none;
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    padding: 1rem 1.4rem;
+    border-radius: 4px;
+    color: #2e7d32;
+    margin-top: 1rem;
+  }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--navy);
+    color: rgba(245,240,232,.55);
+    text-align: center;
+    font-size: .8rem;
+    padding: 1.8rem 1rem;
+    line-height: 1.9;
+  }
+  footer a { color: rgba(245,240,232,.7); }
+
+  /* ── Responsive ── */
+  @media (max-width: 540px) {
+    nav a { padding: .7rem .9rem; font-size: .78rem; }
+    .container { padding: 2rem 1rem 3rem; }
+  }
+</style>
 </head>
-
 <body>
-<p><a href="robins_main.html"><img border="0" src="rh_main_cartoon_splash3d.jpg" alt="The Life and Times of Robin F. Howells... Click to enter his world" width="754" height="537"></a></p>
-        <p>This personal copy of
-        the first edition of his book was inscribed by Mike Leunig when he and
-        Robin were colleagues together on Nation Review. At the time Robin was
-        involved in a lot of pioneering investigative journalism. Taken from the
-        frontispiece of &quot;The Penguin Leunig&quot; Introduced by Barry
-        Humphries.<br>
-        ISBN 0 14 00.4019 6
-  </center>
+
+<header class="masthead">
+  <hr class="masthead-rule">
+  <h1>Robin F. Howells</h1>
+  <p class="tagline">Journalist · Investigative Reporter · Writer</p>
+</header>
+
+<nav id="main-nav">
+  <a href="#" onclick="showPage('home')" class="active" data-page="home">Home</a>
+  <a href="#" onclick="showPage('news')" data-page="news">What's New</a>
+  <a href="#" onclick="showPage('articles')" data-page="articles">Articles</a>
+  <a href="#" onclick="showPage('links')" data-page="links">Links</a>
+  <a href="#" onclick="showPage('contact')" data-page="contact">Contact</a>
+</nav>
+
+<!-- ═══════════════ HOME ═══════════════ -->
+<div id="page-home" class="page active">
+  <div class="container">
+    <img src="rh_main_cartoon_splash3d.jpg"
+         alt="The Life and Times of Robin F. Howells — click to enter"
+         class="splash-photo"
+         onclick="showPage('articles')">
+    <p class="splash-caption">
+      This personal copy of the first edition was inscribed by Mike Leunig when he and
+      Robin were colleagues at <em>Nation Review</em>. Taken from the frontispiece of
+      <em>The Penguin Leunig</em>, introduced by Barry Humphries (ISBN 0 14 00.4019 6).
+    </p>
+
+    <h2 class="section-title">So, who IS Robin Howells?</h2>
+
+    <p class="bio-intro">
+      Robin has worked for more than 45 years in the Communications business, including
+      extensive experience in journalism in daily newspapers and magazines, Public
+      Relations, Broadcasting and Advertising.
+    </p>
+    <p>
+      He held senior executive positions at <em>The Herald</em>, <em>The Age</em>,
+      <em>Newsday</em>, <em>Nation Review</em> and the <em>Victorian Farmer</em>, and
+      was Victorian Manager of Australia's first national media representation company,
+      which represented Press, Radio and Television in all States.
+    </p>
+
+    <ul class="career-highlights">
+      <li>Made a <strong>Fellow of the Advertising Institute of Australia</strong> (the
+      highest membership ranking) in the 1960s; also holds the Associate and Licenciate
+      Diploma from the A.I.A.</li>
+
+      <li>During the 1970s, whilst News Editor of <em>Nation Review</em> — then
+      Australia's leading weekly news magazine — he honed his skills as an investigative
+      journalist, working alongside Richard Walsh, Mungo MacCallum, John Hepworth, Bob
+      Ellis, Richard Neville, Patrick Cooke and Michael Leunig.</li>
+
+      <li>On appointment as Editor of the <em>Victorian Farmer</em> he redesigned the
+      publication from the ground up; awarded <strong>Best Magazine Feature Story</strong>
+      by the Royal Agricultural Society in 1978.</li>
+
+      <li>Planned and executed the Anti-Cancer Council of Victoria's landmark
+      <strong>Slip, Slop, Slap</strong> campaign's public relations in 1981, along with
+      subsequent ACCV campaigns including the <strong>Melbourne Cup Day Appeal</strong>.</li>
+
+      <li>An article, <em>The girl who played hookey</em> (originally in <em>The Age</em>,
+      April 10, 1981) was selected for <em>The Best of The Age 1980–81</em>, edited by
+      Cameron Forbes and published by Nelson.</li>
+
+      <li>Has used IBM-compatible computers since 1982. For many years he wrote on
+      computer topics for <em>Computing Australia</em>, <em>PC Australia</em>,
+      <em>Australian Personal Computer</em> and <em>Today's Computer</em>; later wrote
+      about internet sites for <em>The Australian</em>, <em>The Big Issue</em> and
+      <em>PC Update</em> (Melbourne PC User Group). Wrote and presented an 18-month
+      series of broadcast talks on computers for Radio Australia shortwave.</li>
+
+      <li>In August 1988 he established a closed-system computerised BBS for the
+      Australian Journalists' Association. In 1989, as a contribution to Radio
+      Australia's 50th Anniversary, he ran the MATILDA BBS 24 hours a day for overseas
+      listeners. In 1990–91 he ran the WYSIWYG BBS for desktop publishing users.</li>
+    </ul>
+
+    <div class="quote-block" id="daily-quote">
+      <div class="quote-label">Quote of the Day</div>
+      <p id="quote-text"></p>
+      <cite id="quote-attr"></cite>
+    </div>
+  </div>
 </div>
-<p></p>
 
-<p></p>
-<p>Content &copy 2012 Robin Howells All rights reserved design, layout and original web authoring by<br>
-<a href="http://www.digitaltapestries.com/"><img border="0" src="dt_logo_small.gif" alt="Digital Tapestries - weaving a better web for you!" width="88" height="31">
-<br>
-</a></p>
-
-<div>
-<p font face="Calibri, Verdana" size="2">Last modified: 1 June 2012<br>
-Best viewed at 1024 X 768 with Firefox 12, Internet Explorer 9 or Opera 12. 
-<br>
+<!-- ═══════════════ WHAT'S NEW ═══════════════ -->
+<div id="page-news" class="page">
+  <div class="container">
+    <h2 class="section-title">What's New</h2>
+    <p style="margin-bottom:1.5rem;font-size:.97rem;">
+      The following articles have had links for 'Further Online Information' added:
+    </p>
+    <ul class="whats-new-list">
+      <li><a href="rh_mystery_max.html" target="_blank">Mystery Max (Spying Around)</a></li>
+      <li><a href="rh_hamers_loop.html" target="_blank">Hamer's loop problem</a></li>
+      <li><a href="rh_marxists-leninists.html" target="_blank">Marxist-leninists take over godless church</a></li>
+      <li><a href="rh_labor_inmates.html" target="_blank">Labor inmates seize the old asylum</a></li>
+      <li><a href="rh_great_crisis.html" target="_blank">How they took the news of the great crisis out there in the real world…</a></li>
+      <li><a href="rh_press_bias.html" target="_blank">Press bias — look again, Rupert</a></li>
+      <li><a href="rh_security_services_revealed.html" target="_blank">Our security services stand revealed</a></li>
+      <li><a href="rh_leunig_and_law.html" target="_blank">Leunig and the law</a></li>
+      <li><a href="rh_johns_new_dinner_invite.html" target="_blank">Sir John's new dinner invitation</a></li>
+      <li><a href="rh_kerrs_law.html" target="_blank">Kerr's law on fighting horses</a></li>
+      <li><a href="rh_hawkes_seat.html" target="_blank">Holding labors for Hawke's seat</a></li>
+      <li><a href="rh_against_claud.html" target="_blank">Continuity — People Against Claud</a></li>
+    </ul>
+  </div>
 </div>
 
+<!-- ═══════════════ ARTICLES ═══════════════ -->
+<div id="page-articles" class="page">
+  <div class="container">
+    <h2 class="section-title">Articles Index</h2>
 
-<p>
+    <div class="articles-note">
+      Each article opens in a new tab. <strong>Note:</strong> The house style used at
+      <em>Nation Review</em> avoided capital letters for proper names and was dismissive
+      of apostrophes and commas. Articles from that publication are reproduced in their
+      original form.
+    </div>
 
-<div>
+    <div class="article-group">
+      <h3>Newspapers &amp; Magazines</h3>
+      <ul class="article-list">
+        <li><a href="rh_mystery_max.html" target="_blank">Mystery Max (Spying Around)</a><span class="date">Feb/Mar 1975</span></li>
+        <li><a href="rh_hamers_loop.html" target="_blank">Hamer's loop problem</a><span class="date">Mar 1975</span></li>
+        <li><a href="rh_marxists-leninists.html" target="_blank">Marxist-leninists take over godless church</a><span class="date">Jun/Jul 1975</span></li>
+        <li><a href="rh_labor_inmates.html" target="_blank">Labor inmates seize the old asylum</a><span class="date">Sep/Oct 1975</span></li>
+        <li><a href="rh_great_crisis.html" target="_blank">How they took the news of the great crisis out there in the real world…</a><span class="date">Oct 1975</span></li>
+        <li><a href="rh_press_bias.html" target="_blank">Press bias — look again, Rupert</a><span class="date">Dec 1975</span></li>
+        <li><a href="rh_security_services_revealed.html" target="_blank">Our security services stand revealed</a><span class="date">Mar 1976</span></li>
+        <li><a href="rh_leunig_and_law.html" target="_blank">Leunig and the law</a><span class="date">May 1976</span></li>
+        <li><a href="rh_johns_new_dinner_invite.html" target="_blank">Sir John's new dinner invitation</a><span class="date">Jun 1976</span></li>
+        <li><a href="rh_kerrs_law.html" target="_blank">Kerr's law on fighting horses</a><span class="date">Jun/Jul 1976</span></li>
+        <li><a href="rh_hawkes_seat.html" target="_blank">Holding labors for Hawke's seat</a><span class="date">Aug 1976</span></li>
+        <li><a href="rh_against_claud.html" target="_blank">Continuity — People Against Claud</a><span class="date">Oct 1976</span></li>
+        <li><a href="rh_my_mate.html" target="_blank">Must my mate leave?</a><span class="date">Oct 1981</span></li>
+        <li><a href="rh_hookey_girl.html" target="_blank">The girl who played hookey</a><span class="date">Apr 1981</span></li>
+        <li><a href="rh_hacker_jailed.html" target="_blank">Hacker jailed</a><span class="date"></span></li>
+        <li><a href="rh_phone_service_chaos.html" target="_blank">Phone service chaos</a><span class="date"></span></li>
+        <li><a href="rh_womansday_lensman.html" target="_blank">Woman's Day lensman</a><span class="date"></span></li>
+        <li><a href="rh_being_correct.html" target="_blank">Being correct</a><span class="date"></span></li>
+        <li><a href="rh_revisionist_review.html" target="_blank">Revisionist review</a><span class="date"></span></li>
+      </ul>
+    </div>
 
+    <div class="article-group">
+      <h3>Personal &amp; Family Stories</h3>
+      <ul class="article-list">
+        <li><a href="rh_faithful_fido.html" target="_blank">Faithful Fido</a><span class="date"></span></li>
+        <li><a href="rh_great grandfather.html" target="_blank">The great grandfather</a><span class="date"></span></li>
+        <li><a href="rh_great_grandfather_text.html" target="_blank">Great grandfather — text</a><span class="date"></span></li>
+        <li><a href="rh_ja_paton_obit.html" target="_blank">J.A. Paton obituary</a><span class="date"></span></li>
+        <li><a href="rh_oaks_beauty.html" target="_blank">The Oaks beauty</a><span class="date"></span></li>
+        <li><a href="rh_mystery_max.html" target="_blank">Mystery Max</a><span class="date"></span></li>
+      </ul>
+    </div>
+
+    <div class="article-group">
+      <h3>Technology &amp; Computing</h3>
+      <ul class="article-list">
+        <li><a href="rh_cyber_dunny.html" target="_blank">Cyber dunny</a><span class="date"></span></li>
+        <li><a href="rh_corel_movie_guide.html" target="_blank">Corel movie guide</a><span class="date"></span></li>
+        <li><a href="rh_amateurish_arts.html" target="_blank">Amateurish arts</a><span class="date"></span></li>
+        <li><a href="rh_hacker_jailed.html" target="_blank">Hacker jailed</a><span class="date"></span></li>
+      </ul>
+    </div>
+
+    <div class="article-group">
+      <h3>Culture &amp; Film</h3>
+      <ul class="article-list">
+        <li><a href="rh_charles_boyer.html" target="_blank">Charles Boyer</a><span class="date"></span></li>
+        <li><a href="rh_borsalino.html" target="_blank">Borsalino</a><span class="date"></span></li>
+        <li><a href="rh_meets_darth.html" target="_blank">Meets Darth</a><span class="date"></span></li>
+        <li><a href="rh_warp_drive_kirk.html" target="_blank">Warp drive Kirk</a><span class="date"></span></li>
+        <li><a href="rh_raiders_snoop.html" target="_blank">Raiders &amp; Snoop</a><span class="date"></span></li>
+        <li><a href="rh_pluto_badge.html" target="_blank">Pluto badge</a><span class="date"></span></li>
+        <li><a href="rh_slinky_sam.html" target="_blank">Slinky Sam</a><span class="date"></span></li>
+        <li><a href="rh_vegemite_sandwich.html" target="_blank">Vegemite sandwich</a><span class="date"></span></li>
+      </ul>
+    </div>
+  </div>
 </div>
+
+<!-- ═══════════════ LINKS ═══════════════ -->
+<div id="page-links" class="page">
+  <div class="container">
+    <h2 class="section-title">Favourite Links</h2>
+    <p class="links-intro">
+      On the Internet I tend to read widely and sometimes indiscriminately. These are
+      a few of the regular sites I visit for a challenging read. Each link opens in a
+      new tab.
+    </p>
+    <ul class="link-list">
+      <li><a href="http://www.melbpc.org.au/" target="_blank" rel="noopener">Melbourne PC Users Group<span>the place where I hang out</span></a></li>
+      <li><a href="http://www.digitaltapestries.com/" target="_blank" rel="noopener">Digital Tapestries<span>the lovely people who created this site</span></a></li>
+      <li><a href="http://www.crikey.com.au/" target="_blank" rel="noopener">Crikey<span>independent Australian news</span></a></li>
+      <li><a href="http://www.private-eye.co.uk/" target="_blank" rel="noopener">Private Eye Magazine<span>UK satirical &amp; investigative journalism</span></a></li>
+      <li><a href="http://www.csmonitor.com/" target="_blank" rel="noopener">The Christian Science Monitor<span>international news &amp; analysis</span></a></li>
+      <li><a href="http://www.utne.com/" target="_blank" rel="noopener">Utne Reader<span>independent media aggregator</span></a></li>
+      <li><a href="http://www.virtualchocolate.com/send.cfm" target="_blank" rel="noopener">Send Virtual Chocolate<span>a sweet treat for someone you love</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════ CONTACT ═══════════════ -->
+<div id="page-contact" class="page">
+  <div class="container">
+    <h2 class="section-title">Contact Robin</h2>
+    <p class="contact-intro">
+      If you'd like to get in touch regarding one of my articles, or have suggestions
+      for improving this site, please use the form below. Make sure to include your
+      email address if you'd like a reply — and please be patient, as I have limited
+      time in which to respond.
+    </p>
+    <form class="contact-form" id="contact-form" onsubmit="return submitContact(event)">
+      <div class="field">
+        <label for="contact-name">Your Name</label>
+        <input type="text" id="contact-name" name="name" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="contact-email">Your Email Address</label>
+        <input type="email" id="contact-email" name="email" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="contact-message">Your Message or Suggestion</label>
+        <textarea id="contact-message" name="message" required></textarea>
+      </div>
+      <div class="btn-row">
+        <button type="submit" class="btn">Send Message</button>
+        <button type="reset" class="btn btn-secondary">Clear</button>
+      </div>
+    </form>
+    <div class="form-success" id="form-success">
+      ✓ Thank you — your message has been prepared. Please send it via your email client.
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Content &copy; 2002–2012 Robin Howells. All rights reserved.</p>
+  <p>Original design, layout and web authoring by
+    <a href="http://www.digitaltapestries.com/" target="_blank" rel="noopener">Digital Tapestries</a>.
+    Modernised 2024.
+  </p>
+</footer>
+
+<script>
+  // ── Page navigation ──────────────────────────────────────────────
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.querySelector('[data-page="' + id + '"]').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+
+  // ── Quote of the day ────────────────────────────────────────────
+  const quotes = [
+    { text: "Fiction is based on reality unless you're a fairytale artist. You have got to get your knowledge of life from somewhere. You have to know the material you're writing about before you alter it.", attr: "Hunter S. Thompson" },
+    { text: "Murdoch has contempt for journalism. He wants all news to be a matter of opinion. Opinion can't be proven false. That's very dangerous because if people don't have a set of facts that they can agree on then it's difficult to reach consensus on what's correct public policy.", attr: "David Brock, Media Matters for America" },
+    { text: "The curious fact is that while the press at least enjoys abundant resources, the actual amount of original reporting is declining.", attr: "Chris Anderson, 2004 Andrew Olle Media Lecture" },
+    { text: "When in doubt, find out, and if you can't find out, leave out.", attr: "Freda Irving, journalist, The Argus" },
+    { text: "Absolute truth is a very rare and dangerous commodity in the context of professional journalism.", attr: "Hunter S. Thompson" },
+    { text: "Trying to determine what is going on in the world by reading newspapers is like trying to tell the time by watching the second hand of a clock.", attr: "Ben Hecht" },
+    { text: "The public have an insatiable curiosity to know everything. Except what is worth knowing. Journalism, conscious of this, and having tradesman-like habits, supplies their demands.", attr: "Oscar Wilde" },
+    { text: "The difference between literature and journalism is that journalism is unreadable and literature is not read.", attr: "Oscar Wilde" },
+    { text: "Journalism is merely history's first draft.", attr: "Geoffrey C. Ward" },
+    { text: "Journalism consists largely in saying 'Lord Jones died' to people who never knew Lord Jones was alive.", attr: "G.K. Chesterton" },
+    { text: "WHY is the greatest three-letter word in the journalistic world. You'll never go broke as a journalist if you ask the question why.", attr: "George Negus" },
+    { text: "Ask tough questions. Think about the spin — and go beyond it.", attr: "Helen Thomas, doyen of the White House Press Corps" },
+    { text: "I think journalism is so full of doubletalk and charming words, and people not saying what they mean.", attr: "Michael Leunig" },
+    { text: "Nation Review emerged as the old Liberal Government was dying. And we emerged as Gough emerged. The people I worked with there were brilliant journalists. Really dynamic, funny people. And I miss them dearly to this day.", attr: "Michael Leunig" },
+    { text: "If journalism is said to be the first draft of history, it can also be said to be sometimes slapdash, sometimes superficial, or wrongly slanted.", attr: "Mark Day" },
+    { text: "Journalists' reputations will always be made by being fair and accurate.", attr: "Eddie McGuire" },
+    { text: "Freedom of speech means people are free to say what they believe; free to speak openly, even if their views are unfair; even if their arguments are contrived to put the best possible spin on what they say.", attr: "Mark Day" },
+  ];
+
+  (function setQuote() {
+    const day = new Date().getDate() % quotes.length;
+    const q = quotes[day];
+    const today = new Date().toLocaleDateString('en-AU', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+    document.querySelector('.quote-label').textContent = 'Quote for ' + today;
+    document.getElementById('quote-text').textContent = '\u201c' + q.text + '\u201d';
+    document.getElementById('quote-attr').textContent = '\u2014 ' + q.attr;
+  })();
+
+  // ── Contact form ─────────────────────────────────────────────────
+  function submitContact(e) {
+    e.preventDefault();
+    const name    = document.getElementById('contact-name').value.trim();
+    const email   = document.getElementById('contact-email').value.trim();
+    const message = document.getElementById('contact-message').value.trim();
+    const subject = encodeURIComponent('Message from ' + name + ' via Robin\'s site');
+    const body    = encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + message);
+    window.location.href = 'mailto:rfhowells@tpg.com.au?subject=' + subject + '&body=' + body;
+    document.getElementById('form-success').style.display = 'block';
+    return false;
+  }
+</script>
 </body>
-<!-- Mirrored from users.tpg.com.au/lesleyjh/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Aug 2016 06:32:23 GMT -->
 </html>
